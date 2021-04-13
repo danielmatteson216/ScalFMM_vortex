@@ -1,0 +1,26 @@
+#-----------------------------------------------------------------------------
+#
+# SCALFMMConfig.cmake - SCALFMM CMake configuration file for external projects.
+#
+# This file is configured by SCALFMM and used by the SCALFMM.cmake module
+# to load SCALFMM's settings for an external project.
+#
+
+@PACKAGE_INIT@
+
+if(NOT TARGET @PROJECT_NAME@::@PROJECT_NAME@)
+  list(APPEND CMAKE_MODULE_PATH "@MORSE_CMAKE_MODULE_PATH@/find")
+  set(IMPORTED_LIBS @SCALFMM_LIBRARIES@)
+  set(BLA_VENDOR @BLA_VENDOR@)
+  include(CMakeFindDependencyMacro)
+  foreach(lib IN LISTS IMPORTED_LIBS)
+    find_dependency(${lib})
+    if(NOT ${lib}_FOUND)
+      message(FATAL_ERROR "MISSING ${lib} DEPENDENCY !")
+    else()
+      message(STATUS "Found ${lib} dependency.")
+    endif()
+  endforeach()
+  include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@-targets.cmake")
+endif()
+
