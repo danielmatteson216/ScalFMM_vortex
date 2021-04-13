@@ -1,0 +1,77 @@
+/*! \page interFMM Kernel Independent FMM
+
+ * In this section, we briefly discuss the Interpolation FAst Multipole method.
+
+ * \section General
+
+The interpolation fast multipole method
+
+*The method was introduced by Fong and Alt[1] for Chebyshev interpolation and was extended to regularly spaced points in[2,3].
+For interpolation based on Chebyshev polynomials, in[4] important optimizations are proposed reducing complexity and computation time (pre-calculation, compression M2L operator, ...)
+
+*<ol>
+*<li><a href="https://doi.org/DOI: 10.1016/j.jcp.2009.08.03">Fong, W., & Darve, E. (2009). The black-box fast multipole method. Journal of Computational Physics, 228(23), 8712–8725.</a></li>
+* <li> Fast hierarchical algorithms for generating Gaussian random fields. Pierre Blanchard, Olivier Coulaud, Eric Darve, Research Report 8811 (<a href="https://hal.inria.fr/hal-01228519">https://hal.inria.fr/hal-01228519</a>)</li>
+*<li>Pierre Blanchard. Fast hierarchical algorithms for the low-rank approximation of matrices, with applications to materials physics, geostatistics and data analysis. PhD of Université de Bordeaux, 2017. <a href="https://tel.archives-ouvertes.fr/tel-01534930">https://tel.archives-ouvertes.fr/tel-01534930</a> </li>
+*<li>Optimized M2L Kernels for the Chebyshev Interpolation based Fast Multipole Method, Matthias Messner; Berenger Bramas; Olivier Coulaud ;  Eric Darve
+ <a href="http://hal.inria.fr/docs/00/75/39/34/PDF/main.pdf">Research Report</a>, 2012</li>
+*</ol>
+
+ * \section Example
+Chebyshev
+* In this part we will run a simulation with Chebyshev orequispaced points:
+ *  Examples/LagrangeInterpolationFMM.cpp        equispaced points also called uniform or Lagrange points/interpolation
+ *  Examples/ChebyshevInterpolationFMM.cpp       Chebyshev interpolation
+
+ 
+*With the Interpolation kernel, the accuracy parameter, ORDER for this kernel is set to 7. The different options of these drivers are
+
+\code{.cpp}
+Examples/Release/ChebyshevInterpolationFMM -help
+Examples/Release/ChebyshevInterpolationFMM : Driver for Chebyshev interpolation kernel  (1/r kernel).
+*>> Here is the list of the parameters you can pass to this application :
+*	-show-compile, --show-compile, --flags,
+*		To have the list of flags and lib linked to scalfmm.
+*	-show-info, --show-host, --datehost,
+*		To have to print the current host and the execution date.
+*	-show-param, --show-param, -show-params, --show-params,
+*		To print out the paremeters passed to the command line.
+*	-f, -fin, --input-filename, -filename,
+*		To give an input file.
+*	-h, --height, -depth,
+*		The number of levels in the octree (at least 2 for the root and the leaves).
+*	-sh, --sub-height, -subdepth,
+*		The number of allocated levels in the sub octree.
+*	-f, -fin, --input-filename, -filename,
+*		To give an input file.
+*	-t, -nbthreads,
+*		To choose the number of threads.
+\endcode
+
+
+To run the simulation on particles in  my2kkpartfile.fma file with the Chebyshev interpoaltion and an octree of high 5 with 10 threads, launch the following command
+\code{.cpp}
+Examples/Release/ChebyshevInterpolationFMM  -f my2kkpartfile.fma -depth 5 -subdepth 3 -t 10
+
+ \endcode
+
+
+* \section MatrixKernel
+ *
+  * \subsection AddKernel How add a new Matrix Kernel
+
+   * \subsection predKernel predefined Matrix Kernel
+   * Different kernels are predefined in ScalFMM. The kernels are in located
+   * in FInterpMatrixKernel.hpp
+   *<ul>
+   * <li> Laplacian kernel K(x,y)= 1/r with r=|x-y|          <--> class FInterpMatrixKernelR
+   * <li> Laplacian kernel K(x,y)=1/rh with rh=sqrt(L_i*(x_i-y_i)^2)   <--> class FInterpMatrixKernelRH
+   * <li>                  K(x,y)=1/r^2 with r=|x-y|     <--> class FInterpMatrixKernelRR
+   * <li> Lennard Jones    K(x,y)=1/r^12 - 1/r^6 with r=|x-y|"   <--> class  FInterpMatrixKernelLJ
+   * <li>Modified  Laplacian kernel  K(x,y)=1/r exp(-lambda r) with r=|x-y| <--> FInterpMatrixKernelML
+   * <li> K(x,y)=1/(r^2 + coreWidth) with r=|x-y|  <-->  FInterpMatrixKernelAPLUSRR
+   * </ul>
+ 
+ 
+
+*/

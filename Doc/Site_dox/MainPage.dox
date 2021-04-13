@@ -1,0 +1,78 @@
+// This page contains the special doxygen pages and mainpage.
+
+/*!
+ * @mainpage ScalFmm
+ *
+ * \section overV Overview
+ *
+ * ScalFMM is a software/library to simulate N-body interactions using
+ * the Fast Multipole Method. This is a <b>kernel independent fast multipole
+method</b> based on interpolation ( Chebyshev or Lagrange). 
+ * 
+ * The library offers two methods to compute interactions between
+ * bodies when the potential decays like 1/r. The first method is the
+ * classical FMM based on spherical harmonic expansions and the second is
+ * the Black-Box method which is an independent kernel formulation
+ * (introduced by E. Darve @ Stanford). With this method, we can now
+ * easily add new non oscillatory kernels in our library. For the
+ * classical method, two approaches are used to decrease the complexity
+ * of the operators. We consider either matrix formulation that allows us
+ * to use BLAS routines or rotation matrices to speed up the M2L
+ * operator.
+ *
+ * ScalFMM intends to offer all the functionalities needed to perform
+ * large parallel simulations while enabling an easy customization of
+ * the simulation components: kernels, particles and cells. It works
+ * in parallel in a shared/distributed memory model using OpenMP and
+ * MPI. The software architecture has been designed with two major
+ * objectives: being easy to maintain and easy to understand. There is
+ * two main parts: 
+ * <ul> 
+ * <li> the management of the octree and the
+ * parallelization of the method; </li> 
+ * <li> The kernels. This new
+ * architecture allow us to easily add new FMM algorithm or kernels
+ * and new paradigm of parallelization. </li> 
+ * </ul>
+ *
+ * To download build and install the application, please see \ref
+ * install.
+ *
+ * The \ref quick can help you to understand the architecture of the
+ * library.
+ *
+ * The \ref mainexamples page can help you to understand how the test are made.
+ *
+ * This software is distributed under a specific License. For more
+ * informations, see \ref License.
+ *
+ * If you want to cite the project and/or the team, please contact us. See \ref contacts page.
+ *
+ *
+ *  \subsection Publications
+ * <ul>
+ *<li>Pierre Blanchard. Fast hierarchical algorithms for the low-rank approximation of matrices, with applications to materials physics, geostatistics and data analysis. PhD of Université de Bordeaux, 2017. <a href="https://tel.archives-ouvertes.fr/tel-01534930">https://tel.archives-ouvertes.fr/tel-01534930</a> </li>
+ *<li> Bridging the gap between OpenMP 4.0 and native runtime systems for the fast multipole method, Emmanuel Agullo, Olivier Aumage, Berenger Bramas, Olivier Coulaud, Samuel Pitoiset. RR-8953, Inria. 2016, pp.49. <a href="https://hal.inria.fr/hal-01372022">hal-01372022</a></li>
+ *<li> Task-based FMM for heterogeneous architectures. Emmanuel Agullo, Berenger Bramas, Olivier Coulaud, Eric Darve, Matthias Messner, et al.. Concurrency and Computation: Practice and Experience, Wiley, 2016, 28 (9), <a href="http://onlinelibrary.wiley.com/doi/10.1002/cpe.3723/abstract;jsessionid=2AFE0326010BEA7DE21205D13EEB2EE1.f02t03">10.1002/cpe.3723</a></li>
+ * <li> Fast hierarchical algorithms for generating Gaussian random fields. Pierre Blanchard, Olivier Coulaud, Eric Darve, Research Report 8811 (<a href="https://hal.inria.fr/hal-01228519">https://hal.inria.fr/hal-01228519</a>)
+ *<li>Bérenger Bramas. Optimization and parallelization of the boundary element method for the wave equation in time domain. PhD of Université de Bordeaux, 2016. <a href="https://hal.inria.fr/tel-01306571/document">pdf</a> </li>
+ *  <li>Task-based FMM for heterogeneous architectures, Emmanuel Agullo; Berenger Bramas; Olivier Coulaud,;Eric Darve; Matthias Messner; Toru Takahashi, Inria Research Report, 2014, pp. 29. <a href="http://hal.inria.fr/docs/00/97/46/74/PDF/RR-8513.pdf">RR-8513</a>
+ *  <li> Task-Based FMM for Multicore Architectures, Emmanuel Agullo; Berenger Bramas; Olivier Coulaud ,  Eric Darve; Matthias Messner; Toru Takahashi SIAM Journal on Scientific Computing, SIAM, 2014, 36 (1), pp. 66-93
+    DOI : <a href="http://epubs.siam.org/doi/abs/10.1137/130915662"> 10.1137/130915662</a></li> 
+   *  <li>Optimized M2L Kernels for the Chebyshev Interpolation based Fast Multipole Method, Matthias Messner; Berenger Bramas; Olivier Coulaud ;  Eric Darve
+ <a href="http://hal.inria.fr/docs/00/75/39/34/PDF/main.pdf">Research Report</a>, 2012</li>
+  *  <li>Pipelining the Fast Multipole Method over a Runtime System, Emmanuel Agullo; Berenger Bramas; Olivier Coulaud ; Eric Darve ; Matthias Messner; Toru Takahashi, 2012, pp. 24. <a href="http://hal.inria.fr/hal-00703130/PDF/RR-7981.pdf">RR-7981</a>
+  *  
+  * </ul>
+ *
+ 
+  *
+ *  \subsection Projects Projects using ScalFMM
+ * If you want to add your project, please contact us. See \ref contacts page.
+ * <ul>
+  *  <li> </li>
+  * </ul>
+ */
+
+
+

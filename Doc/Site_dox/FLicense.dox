@@ -1,0 +1,28 @@
+/*! \page License License information
+ *
+ *
+ * The library is under LGPL + CeCILL-C licenses + inclusion exceptions (see Exceptions below).
+ * In case of conflict the more restrictive has to be used.
+ * We encourage users to have a look to the official license websites in case of doubts.  
+ *
+ * See the GNU General Public and CeCILL-C Licenses for more details.
+ * "http://www.cecill.info".  "http://www.gnu.org/licenses".
+ *
+ * Exceptions: ScalFMM can be linked or included in an application
+ * without propagating the LGPL license to it.
+ * As an example, ScalFMM can be linked statically, or the source
+ * files can be included without the requirement to make the final target
+ * application LGPL.
+ * However, it must be explicatively written that ScalFMM is included,
+ * and the authors of ScalFMM must be informed of such use.
+ *
+ * ScalFmm is under software patent number
+ * IDDN.FR.001.100030.000.S.P.2012.000.31235. If you need a more
+ * flexible license, please do not hesitate to contact us.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ *
+ *
+ */
