@@ -1,0 +1,2 @@
+/usr/bin/ar qc libscalfmm.a  CMakeFiles/scalfmm.dir/src/FAlgorithmTimers.cpp.o CMakeFiles/scalfmm.dir/src/FLog.cpp.o CMakeFiles/scalfmm.dir/src/FMemStats.cpp.o CMakeFiles/scalfmm.dir/src/FSignalHandler.cpp.o CMakeFiles/scalfmm.dir/src/FMpi.cpp.o
+/usr/bin/ranlib libscalfmm.a

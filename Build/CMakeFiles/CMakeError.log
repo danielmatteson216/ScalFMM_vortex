@@ -1,0 +1,287 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_00326/fast"
+/usr/bin/make -f CMakeFiles/cmTC_00326.dir/build.make CMakeFiles/cmTC_00326.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_00326.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -std=gnu++14 -o CMakeFiles/cmTC_00326.dir/CheckSymbolExists.cxx.o -c /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_00326
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_00326.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_00326.dir/CheckSymbolExists.cxx.o  -o cmTC_00326 
+CMakeFiles/cmTC_00326.dir/CheckSymbolExists.cxx.o: In function `main':
+CheckSymbolExists.cxx:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_00326.dir/build.make:97: recipe for target 'cmTC_00326' failed
+make[1]: *** [cmTC_00326] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_00326/fast' failed
+make: *** [cmTC_00326/fast] Error 2
+
+File /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b2242/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b2242.dir/build.make CMakeFiles/cmTC_b2242.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b2242.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -std=gnu++14 -o CMakeFiles/cmTC_b2242.dir/CheckFunctionExists.cxx.o -c /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_b2242
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b2242.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_b2242.dir/CheckFunctionExists.cxx.o  -o cmTC_b2242 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_b2242.dir/build.make:97: recipe for target 'cmTC_b2242' failed
+make[1]: *** [cmTC_b2242] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_b2242/fast' failed
+make: *** [cmTC_b2242/fast] Error 2
+
+
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fef13/fast && /usr/bin/make -f CMakeFiles/cmTC_fef13.dir/build.make CMakeFiles/cmTC_fef13.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fef13.dir/src.cxx.o
+/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -std=gnu++14 -o CMakeFiles/cmTC_fef13.dir/src.cxx.o -c /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_fef13
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fef13.dir/link.txt --verbose=1
+/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_fef13.dir/src.cxx.o  -o cmTC_fef13 
+CMakeFiles/cmTC_fef13.dir/src.cxx.o: In function `main':
+src.cxx:(.text+0x3e): undefined reference to `pthread_create'
+src.cxx:(.text+0x4a): undefined reference to `pthread_detach'
+src.cxx:(.text+0x5b): undefined reference to `pthread_join'
+src.cxx:(.text+0x6f): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_fef13.dir/build.make:86: recipe for target 'cmTC_fef13' failed
+make[1]: *** [cmTC_fef13] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_fef13/fast' failed
+make: *** [cmTC_fef13/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function cheev_ exists failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4a20a/fast && /usr/bin/make -f CMakeFiles/cmTC_4a20a.dir/build.make CMakeFiles/cmTC_4a20a.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4a20a.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=cheev_   -std=gnu++14 -o CMakeFiles/cmTC_4a20a.dir/CheckFunctionExists.cxx.o -c /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_4a20a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4a20a.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=cheev_    CMakeFiles/cmTC_4a20a.dir/CheckFunctionExists.cxx.o  -o cmTC_4a20a  /usr/lib/x86_64-linux-gnu/libf77blas.so /usr/lib/x86_64-linux-gnu/libatlas.so 
+CMakeFiles/cmTC_4a20a.dir/CheckFunctionExists.cxx.o: In function `main':
+CheckFunctionExists.cxx:(.text+0x10): undefined reference to `cheev_'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_4a20a.dir/build.make:88: recipe for target 'cmTC_4a20a' failed
+make[1]: *** [cmTC_4a20a] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_4a20a/fast' failed
+make: *** [cmTC_4a20a/fast] Error 2
+
+
+
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_60066/fast && /usr/bin/make -f CMakeFiles/cmTC_60066.dir/build.make CMakeFiles/cmTC_60066.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_60066.dir/src.cxx.o
+/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -std=gnu++14 -o CMakeFiles/cmTC_60066.dir/src.cxx.o -c /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_60066
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_60066.dir/link.txt --verbose=1
+/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_60066.dir/src.cxx.o  -o cmTC_60066 
+CMakeFiles/cmTC_60066.dir/src.cxx.o: In function `main':
+src.cxx:(.text+0x3e): undefined reference to `pthread_create'
+src.cxx:(.text+0x4a): undefined reference to `pthread_detach'
+src.cxx:(.text+0x5b): undefined reference to `pthread_join'
+src.cxx:(.text+0x6f): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_60066.dir/build.make:86: recipe for target 'cmTC_60066' failed
+make[1]: *** [cmTC_60066] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_60066/fast' failed
+make: *** [cmTC_60066/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e7be3/fast && /usr/bin/make -f CMakeFiles/cmTC_e7be3.dir/build.make CMakeFiles/cmTC_e7be3.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e7be3.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -std=gnu++14 -o CMakeFiles/cmTC_e7be3.dir/CheckFunctionExists.cxx.o -c /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_e7be3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e7be3.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_e7be3.dir/CheckFunctionExists.cxx.o  -o cmTC_e7be3  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_e7be3.dir/build.make:86: recipe for target 'cmTC_e7be3' failed
+make[1]: *** [cmTC_e7be3] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_e7be3/fast' failed
+make: *** [cmTC_e7be3/fast] Error 2
+
+
+
+Determining if the function cheev_ exists failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bd6d8/fast && /usr/bin/make -f CMakeFiles/cmTC_bd6d8.dir/build.make CMakeFiles/cmTC_bd6d8.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bd6d8.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=cheev_   -std=gnu++14 -o CMakeFiles/cmTC_bd6d8.dir/CheckFunctionExists.cxx.o -c /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_bd6d8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bd6d8.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=cheev_    CMakeFiles/cmTC_bd6d8.dir/CheckFunctionExists.cxx.o  -o cmTC_bd6d8  /usr/lib/x86_64-linux-gnu/libf77blas.so /usr/lib/x86_64-linux-gnu/libatlas.so -lpthread -lm /usr/lib/x86_64-linux-gnu/libdl.so 
+CMakeFiles/cmTC_bd6d8.dir/CheckFunctionExists.cxx.o: In function `main':
+CheckFunctionExists.cxx:(.text+0x10): undefined reference to `cheev_'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_bd6d8.dir/build.make:91: recipe for target 'cmTC_bd6d8' failed
+make[1]: *** [cmTC_bd6d8] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_bd6d8/fast' failed
+make: *** [cmTC_bd6d8/fast] Error 2
+
+
+
+Determining if the function cheev_ exists failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7cfb4/fast && /usr/bin/make -f CMakeFiles/cmTC_7cfb4.dir/build.make CMakeFiles/cmTC_7cfb4.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7cfb4.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=cheev_   -std=gnu++14 -o CMakeFiles/cmTC_7cfb4.dir/CheckFunctionExists.cxx.o -c /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_7cfb4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7cfb4.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=cheev_    CMakeFiles/cmTC_7cfb4.dir/CheckFunctionExists.cxx.o  -o cmTC_7cfb4  -Wl,-rpath,/usr/lib/x86_64-linux-gnu/atlas /usr/lib/x86_64-linux-gnu/atlas/libblas.so 
+CMakeFiles/cmTC_7cfb4.dir/CheckFunctionExists.cxx.o: In function `main':
+CheckFunctionExists.cxx:(.text+0x10): undefined reference to `cheev_'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_7cfb4.dir/build.make:87: recipe for target 'cmTC_7cfb4' failed
+make[1]: *** [cmTC_7cfb4] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_7cfb4/fast' failed
+make: *** [cmTC_7cfb4/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1b1dc/fast && /usr/bin/make -f CMakeFiles/cmTC_1b1dc.dir/build.make CMakeFiles/cmTC_1b1dc.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1b1dc.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_1b1dc.dir/src.c.o   -c /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_1b1dc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1b1dc.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_1b1dc.dir/src.c.o  -o cmTC_1b1dc 
+CMakeFiles/cmTC_1b1dc.dir/src.c.o: In function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+src.c:(.text+0x4a): undefined reference to `pthread_detach'
+src.c:(.text+0x5b): undefined reference to `pthread_join'
+src.c:(.text+0x6f): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_1b1dc.dir/build.make:86: recipe for target 'cmTC_1b1dc' failed
+make[1]: *** [cmTC_1b1dc] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_1b1dc/fast' failed
+make: *** [cmTC_1b1dc/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4130b/fast && /usr/bin/make -f CMakeFiles/cmTC_4130b.dir/build.make CMakeFiles/cmTC_4130b.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4130b.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_4130b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_4130b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4130b.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_4130b.dir/CheckFunctionExists.c.o  -o cmTC_4130b  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_4130b.dir/build.make:86: recipe for target 'cmTC_4130b' failed
+make[1]: *** [cmTC_4130b] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_4130b/fast' failed
+make: *** [cmTC_4130b/fast] Error 2
+
+
+
