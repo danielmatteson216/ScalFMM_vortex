@@ -1,0 +1,21 @@
+Determining if the function cheev_ exists failed with the following output:
+Change Dir: /mnt/c/scalfmm_2/scalfmm/inastemp/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_32ccd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_32ccd.dir/build.make CMakeFiles/cmTC_32ccd.dir/build
+make[1]: Entering directory '/mnt/c/scalfmm_2/scalfmm/inastemp/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_32ccd.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++   -I/usr/include/x86_64-linux-gnu  -DCHECK_FUNCTION_EXISTS=cheev_   -std=gnu++14 -o CMakeFiles/cmTC_32ccd.dir/CheckFunctionExists.cxx.o -c /mnt/c/scalfmm_2/scalfmm/inastemp/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_32ccd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_32ccd.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=cheev_    CMakeFiles/cmTC_32ccd.dir/CheckFunctionExists.cxx.o  -o cmTC_32ccd -Wl,-rpath,/usr/lib/x86_64-linux-gnu/atlas /usr/lib/x86_64-linux-gnu/atlas/libblas.so 
+CMakeFiles/cmTC_32ccd.dir/CheckFunctionExists.cxx.o: In function `main':
+CheckFunctionExists.cxx:(.text+0x10): undefined reference to `cheev_'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_32ccd.dir/build.make:98: recipe for target 'cmTC_32ccd' failed
+make[1]: *** [cmTC_32ccd] Error 1
+make[1]: Leaving directory '/mnt/c/scalfmm_2/scalfmm/inastemp/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_32ccd/fast' failed
+make: *** [cmTC_32ccd/fast] Error 2
+
+
