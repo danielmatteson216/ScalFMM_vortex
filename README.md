@@ -1,3 +1,6 @@
+# *** THIS REPO AND ITS CONTENTS ARE A MODIFIED VERSION OF SCALFMM 2.0, USED FOR VORTEX INTERACTIONS ***
+
+
 # ScalFMM: Fast Multipole Method
 
 [![pipeline status](https://gitlab.inria.fr/solverstack/ScalFMM/badges/develop/pipeline.svg)](https://gitlab.inria.fr/solverstack/ScalFMM/commits/develop)
