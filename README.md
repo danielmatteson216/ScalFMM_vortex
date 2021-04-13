@@ -1,4 +1,5 @@
 # *** THIS REPO AND ITS CONTENTS ARE A MODIFIED VERSION OF SCALFMM 2.0, USED FOR VORTEX INTERACTIONS ***
+The installation instructions below are from the Inria ScalFMM gitlab/github and detail how to setup ScalFMM
 
 
 # ScalFMM: Fast Multipole Method
